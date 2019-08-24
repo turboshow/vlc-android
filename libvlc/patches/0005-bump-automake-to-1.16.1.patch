@@ -1,0 +1,53 @@
+From 53b3adf6b1887190aceeefe835b40c3e515fa95a Mon Sep 17 00:00:00 2001
+Message-Id: <53b3adf6b1887190aceeefe835b40c3e515fa95a.1566564815.git.plestoon@gmail.com>
+From: Don Han <plestoon@gmail.com>
+Date: Fri, 23 Aug 2019 01:23:54 +0800
+Subject: [PATCH 1/3] bump automake to 1.16.1
+
+---
+ extras/tools/SHA512SUMS   | 2 +-
+ extras/tools/bootstrap    | 2 +-
+ extras/tools/packages.mak | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/extras/tools/SHA512SUMS b/extras/tools/SHA512SUMS
+index abc6410fe0..f7a4bde6ed 100644
+--- a/extras/tools/SHA512SUMS
++++ b/extras/tools/SHA512SUMS
+@@ -1,6 +1,6 @@
+ 3954a6ad3f522c135f327ba0d376eb16ae42103849c8cc5cd6c8c6e87b8c5433c95a0f2d4dfa3e6c2705ee0b8996e5b27d0b2248f64a05fc8c902116cc45a7b2  apache-ant-1.9.7.tar.bz2
+ e34c7818bcde14d2cb13cdd293ed17d70740d4d1fd7c67a07b415491ef85d42f450d4fe5f8f80cc330bf75c40a62774c51a4336e06e8da07a4cbc49922d975ee  autoconf-2.69.tar.gz
+-6f201f96431f5e3d3081c4d71c884ae1f4f45b9c5c7a1306c9f3f3d4bd5ee5f6fae47b55d35241b3cae84be555cc0ab84c034acdcd5d9a071f6f0ecdee2dec73  automake-1.15.tar.gz
++47b0120a59e3e020529a6ce750297d7de1156fd2be38db5d101e50120f11b40c28741ecd5eacf2790a9e25386713dcf7717339cfa5d7943d0dbf47c417383448  automake-1.15.tar.gz
+ 693520e53fa21e81f5f15e6f8979e5264e3bf7e194e4c19b884a44767b3b6d6535dee674f355440e7dcac480372882152c0523ac3c2f1c12d51b43540bcffa59  cmake-3.13.1.tar.gz
+ 9953413376c6b33e9e49d1f4f5b2d50075e0b1defb17b3c233d186d21416e6b607df11f6030588eeec3b025e1075c9c37a3db3c872fc22329d1dc0d0c6e2d9d0  gas-preprocessor-72887b9.tar.gz
+ 0e54af7bbec376f943f2b8e4f13631fe5627b099a37a5f0252e12bade76473b0a36a673529d594778064cd8632abdc43d8a20883d66d6b27738861afbb7e211d  libtool-2.4.2.tar.gz
+diff --git a/extras/tools/bootstrap b/extras/tools/bootstrap
+index 8e5cae9b7a..98b95e5839 100755
+--- a/extras/tools/bootstrap
++++ b/extras/tools/bootstrap
+@@ -90,7 +90,7 @@ fi
+ }
+
+ check autoconf 2.69
+-check automake 1.15
++check automake 1.16.1
+ check m4 1.4.16
+ check libtool 2.4
+ check pkg-config
+diff --git a/extras/tools/packages.mak b/extras/tools/packages.mak
+index ffe91ee980..0ca2d96899 100644
+--- a/extras/tools/packages.mak
++++ b/extras/tools/packages.mak
+@@ -18,7 +18,7 @@ LIBTOOL_URL=$(GNU)/libtool/libtool-$(LIBTOOL_VERSION).tar.gz
+ AUTOCONF_VERSION=2.69
+ AUTOCONF_URL=$(GNU)/autoconf/autoconf-$(AUTOCONF_VERSION).tar.gz
+
+-AUTOMAKE_VERSION=1.15
++AUTOMAKE_VERSION=1.16.1
+ AUTOMAKE_URL=$(GNU)/automake/automake-$(AUTOMAKE_VERSION).tar.gz
+
+ M4_VERSION=1.4.18
+--
+2.20.1 (Apple Git-117)
+

@@ -1,0 +1,47 @@
+From 03d03355a412840b38b92a6285fc4d0294ab626c Mon Sep 17 00:00:00 2001
+Message-Id: <03d03355a412840b38b92a6285fc4d0294ab626c.1566564815.git.plestoon@gmail.com>
+In-Reply-To: <53b3adf6b1887190aceeefe835b40c3e515fa95a.1566564815.git.plestoon@gmail.com>
+References: <53b3adf6b1887190aceeefe835b40c3e515fa95a.1566564815.git.plestoon@gmail.com>
+From: Don Han <plestoon@gmail.com>
+Date: Fri, 23 Aug 2019 01:28:02 +0800
+Subject: [PATCH 2/3] add MP2T support to live555
+
+---
+ contrib/src/live555/add-MP2T-support.patch | 11 +++++++++++
+ contrib/src/live555/rules.mak              |  2 ++
+ 2 files changed, 13 insertions(+)
+ create mode 100644 contrib/src/live555/add-MP2T-support.patch
+
+diff --git a/contrib/src/live555/add-MP2T-support.patch b/contrib/src/live555/add-MP2T-support.patch
+new file mode 100644
+index 0000000000..03644a9207
+--- /dev/null
++++ b/contrib/src/live555/add-MP2T-support.patch
+@@ -0,0 +1,11 @@
++--- live/liveMedia/MediaSession.cpp	2016-11-29 05:42:18.000000000 +0800
+++++ live-patched/liveMedia/MediaSession.cpp	2019-08-21 00:36:06.000000000 +0800
++@@ -138,6 +138,8 @@
++     if ((sscanf(sdpLine, "m=%s %hu RTP/AVP %u",
++ 		mediumName, &subsession->fClientPortNum, &payloadFormat) == 3 ||
++ 	 sscanf(sdpLine, "m=%s %hu/%*u RTP/AVP %u",
+++		mediumName, &subsession->fClientPortNum, &payloadFormat) == 3 ||
+++	 sscanf(sdpLine, "m=%s %hu MP2T/AVP %u",
++ 		mediumName, &subsession->fClientPortNum, &payloadFormat) == 3)
++ 	&& payloadFormat <= 127) {
++       protocolName = "RTP";
+diff --git a/contrib/src/live555/rules.mak b/contrib/src/live555/rules.mak
+index bb1d5655c7..875c57de11 100644
+--- a/contrib/src/live555/rules.mak
++++ b/contrib/src/live555/rules.mak
+@@ -76,6 +76,8 @@ endif
+ 	$(APPLY) $(SRC)/live555/add-pkgconfig-file.patch
+ 	# Expose Server:
+ 	$(APPLY) $(SRC)/live555/expose_server_string.patch
++	# Add MP2T support
++	$(APPLY) $(SRC)/live555/add-MP2T-support.patch
+ ifdef HAVE_ANDROID
+ ifneq ($(LEGACY_NDK), 1)
+ 	# Always access in_addr.s_addr field
+--
+2.20.1 (Apple Git-117)
+
