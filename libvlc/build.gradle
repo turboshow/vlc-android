@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
 def abi = System.getenv('GRADLE_ABI')?.toLowerCase()
+def buildTime = (new Date()).format("yyyyMMdd")
 ext {
     library_version = '3.1.12'
     repoName = 'Android'
@@ -49,7 +50,7 @@ android {
         //Custom APK name
         variant.outputs.each { output ->
             if (output.outputFileName != null && output.outputFileName.endsWith('.aar')) {
-                output.outputFileName = "libvlc-${abi}-${library_version}.aar"
+                output.outputFileName = "libvlc-tbs-${abi}-${library_version}-${buildTime}.aar"
             }
         }
     }
