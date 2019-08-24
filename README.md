@@ -16,6 +16,14 @@ It should work with Windows 10, and macOS, but there is no official support for 
 
 Check our [AndroidCompile wiki page](https://wiki.videolan.org/AndroidCompile/)
 
+### build libvlc aar
+
+`$ ./compile.sh -a armeabi-v7a -l --release`
+
+### check result
+
+`$ ls -l libvlc/build/outputs/aar/`
+
 ## Contribute
 
 VLC is a libre and open source project, we welcome all contributions.
