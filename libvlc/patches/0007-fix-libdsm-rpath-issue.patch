@@ -1,12 +1,23 @@
+From 97938faf7b749301cadfe9d643c98f3f45c2cf3c Mon Sep 17 00:00:00 2001
+From: Don Han <plestoon@gmail.com>
+Date: Sat, 24 Aug 2019 16:26:25 +0800
+Subject: [PATCH] fix libdsm build
+
+---
+ contrib/src/libdsm/rules.mak | 1 +
+ 1 file changed, 1 insertion(+)
+
 diff --git a/contrib/src/libdsm/rules.mak b/contrib/src/libdsm/rules.mak
 index 1ea9b769b5..5912dd7a13 100644
 --- a/contrib/src/libdsm/rules.mak
 +++ b/contrib/src/libdsm/rules.mak
 @@ -32,6 +32,7 @@ DEPS_libdsm += pthreads $(DEPS_pthreads)
  endif
- 
+
  .libdsm: libdsm
 +	cd $< && touch "config.rpath"
  	$(RECONF)
  	cd $< && $(HOSTVARS_PIC) ./configure --disable-programs $(LIBDSM_CONF)
  	cd $< && $(MAKE)
+--
+2.17.1
