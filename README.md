@@ -18,7 +18,7 @@ Check our [AndroidCompile wiki page](https://wiki.videolan.org/AndroidCompile/)
 
 ### build libvlc aar
 
-`$ ./compile.sh -a armeabi-v7a -l --release`
+`$ ./compile.sh -a all -l --release`
 
 ### check result
 
