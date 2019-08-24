@@ -1,0 +1,12 @@
+diff --git a/contrib/src/libdsm/rules.mak b/contrib/src/libdsm/rules.mak
+index 1ea9b769b5..5912dd7a13 100644
+--- a/contrib/src/libdsm/rules.mak
++++ b/contrib/src/libdsm/rules.mak
+@@ -32,6 +32,7 @@ DEPS_libdsm += pthreads $(DEPS_pthreads)
+ endif
+ 
+ .libdsm: libdsm
++	cd $< && touch "config.rpath"
+ 	$(RECONF)
+ 	cd $< && $(HOSTVARS_PIC) ./configure --disable-programs $(LIBDSM_CONF)
+ 	cd $< && $(MAKE)
